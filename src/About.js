@@ -103,9 +103,9 @@ const About = () => {
         animate={mainInView ? "visible" : "hidden"}
         className="pt-32 pb-16 px-4 sm:px-6 lg:px-8 relative z-10"
       >
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[20rem_1fr] gap-8">
-          <SidebarProfile />
-          <div className="text-center md:text-left">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[18rem_1fr] gap-4 sm:gap-6 md:gap-8">
+          <div className="order-2 md:order-1"><SidebarProfile /></div>
+          <div className="order-1 md:order-2 text-center md:text-left">
           <motion.h1
             className="text-4xl sm:text-5xl font-extrabold text-blue-400 mb-6"
             variants={slideInVariants}
@@ -133,17 +133,17 @@ const About = () => {
           </motion.h2>
 
           <motion.div
-            className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 mb-12"
+            className="grid grid-cols-3 xs:grid-cols-4 sm:grid-cols-5 md:grid-cols-6 gap-2 sm:gap-3 md:gap-4 mb-10"
             variants={slideInVariants}
           >
             {skills.map((skill, index) => (
               <div
                 key={index}
-                className="group relative bg-black/50 p-4 rounded-lg border border-blue-800 flex items-center justify-center overflow-hidden"
+                className="group relative bg-black/50 p-3 sm:p-4 rounded-lg border border-blue-800 flex items-center justify-center overflow-hidden"
                 title={`${skill.label}: ${skill.level}%`}
                 aria-label={`${skill.label}: ${skill.level}%`}
               >
-                <skill.icon className="w-8 h-8 text-blue-200 transition-transform duration-300 group-hover:scale-110" />
+                <skill.icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-blue-200 transition-transform duration-300 group-hover:scale-110" />
 
                 <div className="pointer-events-none absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center">
                   <div className="text-blue-100 text-sm font-semibold">{skill.label}</div>
