@@ -81,3 +81,4 @@ REACT_APP_EMAILJS_PUBLIC_KEY=your_public_key_here
 ```
 
 Restart the dev server after adding the env file. In EmailJS, configure a template that expects variables: `from_name`, `from_email`, `subject`, and `message`.
+# Portfolio
