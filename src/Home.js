@@ -58,7 +58,7 @@ const Portfolio = () => {
         variants={slideInVariants}
         initial="hidden"
         animate={mainInView ? 'visible' : 'hidden'}
-        className="pt-32 pb-16 relative z-10"
+        className="pt-32 pb-16 px-4 sm:px-6 lg:px-8 relative z-10"
       >
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-[20rem_1fr] gap-10 items-start">
           <SidebarProfile />

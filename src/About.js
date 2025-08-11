@@ -101,7 +101,7 @@ const About = () => {
         variants={slideInVariants}
         initial="hidden"
         animate={mainInView ? "visible" : "hidden"}
-        className="pt-32 pb-16 px-4 relative z-10"
+        className="pt-32 pb-16 px-4 sm:px-6 lg:px-8 relative z-10"
       >
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[20rem_1fr] gap-8">
           <SidebarProfile />
@@ -133,7 +133,7 @@ const About = () => {
           </motion.h2>
 
           <motion.div
-            className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-4 mb-12"
+            className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 mb-12"
             variants={slideInVariants}
           >
             {skills.map((skill, index) => (

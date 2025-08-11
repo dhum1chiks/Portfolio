@@ -21,7 +21,7 @@ function SidebarProfile({
               e.currentTarget.dataset.fallback = '1';
             }
           }}
-          className="w-44 h-56 rounded-2xl object-cover border-2 border-blue-500 shadow-md"
+          className="w-28 h-28 md:w-44 md:h-56 rounded-2xl object-cover border-2 border-blue-500 shadow-md"
         />
         <h2 className="mt-4 text-2xl font-bold text-blue-200">{name}</h2>
         <div className="mt-2 px-3 py-1 rounded-full bg-blue-800/60 text-blue-100 text-sm">

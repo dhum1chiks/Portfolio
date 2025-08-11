@@ -117,7 +117,7 @@ const Contact = () => {
         variants={slideInVariants}
         initial="hidden"
         animate={contactInView ? "visible" : "hidden"}
-        className="pt-32 pb-16 px-4 relative z-10"
+        className="pt-32 pb-16 px-4 sm:px-6 lg:px-8 relative z-10"
       >
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[20rem_1fr] gap-8">
           <SidebarProfile />
@@ -133,7 +133,7 @@ const Contact = () => {
             variants={slideInVariants}
           ></motion.div>
 
-          <div className="flex justify-center space-x-6 mb-12">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-12">
             {[
               { Icon: Github, href: 'https://github.com/i23-2082' },
               { Icon: Linkedin, href: 'https://www.linkedin.com/in/abdul-rehman-1080b2262/' },
@@ -156,7 +156,7 @@ const Contact = () => {
 
           <motion.form
             onSubmit={handleSubmit}
-            className="bg-indigo-900 border-2 border-blue-500 rounded-lg p-6 shadow-lg"
+            className="bg-indigo-900 border-2 border-blue-500 rounded-lg p-4 sm:p-6 shadow-lg"
             variants={slideInVariants}
           >
             <div className="mb-4 text-left">

@@ -231,7 +231,7 @@ const Projects = () => {
             My Projects
           </motion.h1>
 
-          <div className="flex justify-center space-x-4 mb-8">
+          <div className="flex flex-wrap justify-center gap-3 sm:space-x-4 mb-8">
             {['All', 'Web', 'React', 'Node.js', 'FastAPI', 'Flask', 'MySQL'].map((category) => (
               <motion.button
                 key={category}
@@ -247,7 +247,7 @@ const Projects = () => {
             ))}
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {filteredProjects.map((project, index) => (
               <motion.div
                 key={index}
