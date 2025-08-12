@@ -103,7 +103,7 @@ const About = () => {
         animate={mainInView ? "visible" : "hidden"}
         className="pt-32 pb-16 px-4 sm:px-6 lg:px-8 relative z-10"
       >
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[18rem_1fr] gap-4 sm:gap-6 md:gap-8">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[18rem_1fr] gap-6 sm:gap-6 md:gap-8">
           <div className="order-2 md:order-1"><SidebarProfile /></div>
           <div className="order-1 md:order-2 text-center md:text-left">
           <motion.h1
