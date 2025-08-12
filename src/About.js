@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
 import { Github, Instagram, Linkedin, Mail } from 'lucide-react';
 import { SiPython, SiJavascript, SiReact, SiExpress, SiTailwindcss, SiHtml5, SiCss3, SiGit, SiCplusplus, SiSqlite, SiMongodb, SiPandas, SiNumpy, SiSelenium } from 'react-icons/si';
 import Navbar from './components/Navbar';
@@ -96,11 +95,7 @@ const About = () => {
 
       <Navbar />
 
-      <Helmet>
-        <title>About – Abdul Rehman Siddiqui</title>
-        <meta name="description" content="About Rehman portfolio – background, skills, certifications, and experience as a Full Stack Developer." />
-        <link rel="canonical" href="https://your-domain-or-github-pages-url/about" />
-      </Helmet>
+      
       {/* Main Content with left sidebar */}
       <motion.main
         ref={mainRef}

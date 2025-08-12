@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useInView } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
 import { Github, Linkedin, Mail, Info, Code, FileText } from 'lucide-react';
 import { throttle } from 'lodash';
 import Navbar from './components/Navbar';
@@ -61,11 +60,6 @@ const Portfolio = () => {
         animate={mainInView ? 'visible' : 'hidden'}
         className="pt-32 pb-16 px-4 sm:px-6 lg:px-8 relative z-10"
       >
-        <Helmet>
-          <title>Abdul Rehman Siddiqui – Full Stack Developer</title>
-          <meta name="description" content="Rehman portfolio – Full Stack Developer building React/Node.js apps, AI/ML integrations, and data-driven solutions." />
-          <link rel="canonical" href="https://your-domain-or-github-pages-url/" />
-        </Helmet>
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-[20rem_1fr] gap-10 items-start">
           <SidebarProfile />
           <div className="grid grid-cols-1 gap-10 items-center">
