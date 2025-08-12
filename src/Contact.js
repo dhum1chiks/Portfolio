@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useInView } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { throttle } from 'lodash';
@@ -111,6 +112,11 @@ const Contact = () => {
 
       <Navbar />
 
+      <Helmet>
+        <title>Contact – Abdul Rehman Siddiqui</title>
+        <meta name="description" content="Contact Rehman – send a message for collaborations, projects, or hiring." />
+        <link rel="canonical" href="https://your-domain-or-github-pages-url/contact" />
+      </Helmet>
       {/* Contact Section */}
       <motion.main
         ref={contactRef}

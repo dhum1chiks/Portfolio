@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { Github, Instagram, Linkedin, Mail } from 'lucide-react';
 import { SiPython, SiJavascript, SiReact, SiExpress, SiTailwindcss, SiHtml5, SiCss3, SiGit, SiCplusplus, SiSqlite, SiMongodb, SiPandas, SiNumpy, SiSelenium } from 'react-icons/si';
 import Navbar from './components/Navbar';
@@ -59,21 +60,21 @@ const About = () => {
     },
     {
       title: 'MERN Certification',
-      provider: 'coursera/Packt',
+      provider: 'Course/Bootcamp',
       href: mernPdf,
-      image: 'mern stack.png',
+      image: '/mern stack.png',
     },
     {
       title: 'Supervised Machine Learning: Regression and Classification',
       provider: 'Coursera / DeepLearning.ai',
       href: coursera1Pdf,
-      image: 'Supervised Machine Learning: Regression and Classification.png',
+      image: '/Supervised Machine Learning: Regression and Classification.png',
     },
     {
       title: 'Advanced Learning Algorithms',
       provider: 'Coursera / DeepLearning.ai',
       href: coursera2Pdf,
-      image: 'advance learning algorithm.png',
+      image: '/advance learning algorithm.png',
     },
   ];
 
@@ -95,6 +96,11 @@ const About = () => {
 
       <Navbar />
 
+      <Helmet>
+        <title>About – Abdul Rehman Siddiqui</title>
+        <meta name="description" content="About Rehman portfolio – background, skills, certifications, and experience as a Full Stack Developer." />
+        <link rel="canonical" href="https://your-domain-or-github-pages-url/about" />
+      </Helmet>
       {/* Main Content with left sidebar */}
       <motion.main
         ref={mainRef}

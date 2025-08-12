@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import { throttle } from 'lodash';
 import Navbar from './components/Navbar';
@@ -215,6 +216,11 @@ const Projects = () => {
 
       <Navbar />
 
+      <Helmet>
+        <title>Projects – Abdul Rehman Siddiqui</title>
+        <meta name="description" content="Portfolio projects: Task Manager, Resume Tailor AI, Genre Predictor, NASCON, Playfinity and more." />
+        <link rel="canonical" href="https://your-domain-or-github-pages-url/projects" />
+      </Helmet>
       {/* Projects Section */}
       <motion.main
         ref={projectsRef}
