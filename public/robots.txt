@@ -23,7 +23,7 @@ User-agent: DuckDuckBot
 Allow: /
 
 # Sitemap location
-Sitemap: https://your-domain-or-github-pages-url/sitemap.xml
+Sitemap: https://portfolio-seven-zeta-z3pclx5z3l.vercel.app/sitemap.xml
 
 # Crawl delay (optional)
 Crawl-delay: 1
