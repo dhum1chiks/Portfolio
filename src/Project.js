@@ -125,6 +125,9 @@ const Projects = () => {
         (activeFilter === 'MySQL' && project.tech.includes('MySQL'))
       );
 
+  const firstRowProjects = filteredProjects.slice(0, 2);
+  const remainingProjects = filteredProjects.slice(2);
+
   const handleDemoClick = (demoUrl) => {
     if (demoUrl && demoUrl !== '#') {
       console.log('Opening video:', demoUrl); // Debug log
@@ -220,9 +223,9 @@ const Projects = () => {
         animate="visible"
         className="pt-32 pb-16 px-4 relative z-10"
       >
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[18rem_1fr] gap-4 sm:gap-6 md:gap-8">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[18rem_1fr] gap-4 sm:gap-6 md:gap-16">
           <div className="order-1 md:order-1"><SidebarProfile /></div>
-          <div className="order-2 md:order-2 text-center min-w-0">
+          <div className="order-2 md:order-3 text-center min-w-0">
           <motion.h1
             className="text-4xl sm:text-5xl font-extrabold text-blue-400 mb-6"
             variants={slideInVariants}
@@ -230,7 +233,7 @@ const Projects = () => {
             My Projects
           </motion.h1>
 
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 mb-6 sm:mb-8 w-full">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-8 mb-6 sm:mb-8 w-full">
             {['All', 'Web', 'React', 'Node.js', 'FastAPI', 'Flask', 'MySQL'].map((category) => (
               <motion.button
                 key={category}
@@ -246,10 +249,11 @@ const Projects = () => {
             ))}
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 w-full">
-            {filteredProjects.map((project, index) => (
+          {/* First row: exactly two cards on large screens */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-3 sm:gap-4 md:gap-6 w-full">
+            {firstRowProjects.map((project, index) => (
               <motion.div
-                key={index}
+                key={`${project.title}-first-${index}`}
                 className="bg-indigo-900 border-2 sm:border-4 border-blue-500 rounded-lg p-3 sm:p-4 text-left flex flex-col overflow-hidden"
                 variants={slideInVariants}
               >
@@ -287,7 +291,6 @@ const Projects = () => {
                   >
                     Source Code
                   </motion.a>
-                  {/* Only show Live Demo button for projects without deployed URLs */}
                   {(!project.deployedUrl || project.deployedUrl === '#') && (
                     <motion.button
                       onClick={() => handleDemoClick(project.demo)}
@@ -319,6 +322,82 @@ const Projects = () => {
               </motion.div>
             ))}
           </div>
+
+          {/* Remaining rows: three cards per row on large screens */}
+          {remainingProjects.length > 0 && (
+            <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 w-full">
+              {remainingProjects.map((project, index) => (
+                <motion.div
+                  key={`${project.title}-rest-${index}`}
+                  className="bg-indigo-900 border-2 sm:border-4 border-blue-500 rounded-lg p-3 sm:p-4 text-left flex flex-col overflow-hidden"
+                  variants={slideInVariants}
+                >
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-36 sm:h-40 object-cover rounded mb-3 sm:mb-4"
+                    loading="lazy"
+                  />
+                  {project.featured && (
+                    <span className="bg-blue-300 text-black px-2 py-0.5 rounded-full text-xs sm:text-sm font-bold mb-2 inline-block">
+                      Featured
+                    </span>
+                  )}
+                  <h3 className="text-lg sm:text-xl font-semibold text-blue-200 mb-1 sm:mb-2">{project.title}</h3>
+                  <p className="text-sm sm:text-base text-blue-300 mb-3 sm:mb-4 line-clamp-3">{project.description}</p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tech.map((tech, i) => (
+                      <span key={i} className="text-xs sm:text-sm bg-blue-800 px-2 py-1 rounded">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="mt-auto grid grid-cols-1 xs:grid-cols-2 gap-2">
+                    <motion.a
+                      href={project.source}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`px-3 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full hover:from-indigo-600 hover:to-blue-600 transition-all duration-300 flex-1 text-center ${
+                        project.source === '#' ? 'opacity-50 cursor-not-allowed' : ''
+                      }`}
+                      whileHover={project.source !== '#' ? { scale: 1.05 } : {}}
+                      whileTap={project.source !== '#' ? { scale: 0.95 } : {}}
+                      aria-label={`View source code for ${project.title}`}
+                    >
+                      Source Code
+                    </motion.a>
+                    {(!project.deployedUrl || project.deployedUrl === '#') && (
+                      <motion.button
+                        onClick={() => handleDemoClick(project.demo)}
+                        className={`px-3 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full hover:from-indigo-600 hover:to-blue-600 transition-all duration-300 flex-1 text-center ${
+                          project.demo === '#' ? 'opacity-50 cursor-not-allowed' : ''
+                        }`}
+                        whileHover={project.demo !== '#' ? { scale: 1.05 } : {}}
+                        whileTap={project.demo !== '#' ? { scale: 0.95 } : {}}
+                        disabled={project.demo === '#'}
+                        aria-label={`View live demo for ${project.title}`}
+                      >
+                        Live Demo
+                      </motion.button>
+                    )}
+                    {project.deployedUrl && project.deployedUrl !== '#' && (
+                      <motion.a
+                        href={project.deployedUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-3 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full hover:from-indigo-600 hover:to-blue-600 transition-all duration-300 flex-1 text-center"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        aria-label={`View deployed version of ${project.title}`}
+                      >
+                        View Deployed
+                      </motion.a>
+                    )}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          )}
           </div>
         </div>
       </motion.main>
