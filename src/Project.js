@@ -59,7 +59,7 @@ const Projects = () => {
       image: '/projects/task-manager.jpg', // Replace with actual image path
       source: 'https://github.com/i23-2082/task-manager', // Replace with actual GitHub repo link
        // Replace with actual video
-      deployedUrl: 'https://task-frontend-gf8v.vercel.app/', // Replace with actual deployed URL
+      deployedUrl: 'https://frontend-alpha-seven-16.vercel.app/', // Replace with actual deployed URL
       featured: true,
       category: 'Web',
     },
